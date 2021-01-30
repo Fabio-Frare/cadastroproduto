@@ -1,11 +1,7 @@
-package br.com.cadastroproduto.cadastroproduto;
+package br.com.cadastroproduto;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
-
-/*
- * Teste commit
- */
 
 @SpringBootApplication
 public class CadastroprodutoApplication {
