@@ -10,10 +10,12 @@ import br.com.cadastroproduto.resource.model.ProdutoResource;
 public class ProdutoConversor {
 
 	public Produto conversor(ProdutoResource produtoResource) throws ProdutoResourceException {
-
+		
 		try {
 			Produto produto      = new Produto();
-			Long codBarras       = checkCodBarras(produtoResource.getCodBarras());
+			
+//			Long codBarras       = checkCodBarras(produtoResource.getCodBarras());
+			Long codBarras       = Long.parseLong(produtoResource.getCodBarras());
 			String descricao     = produtoResource.getDescricao();
 			int quantidade       = checkQuantidade(produtoResource.getQuantidade());
 			String unidadeMedida = produtoResource.getUnidadeMedida();
@@ -32,15 +34,16 @@ public class ProdutoConversor {
 			return produto;
 
 		} catch (Exception e) {
+	
 			throw new ProdutoResourceException(
 					"Falha ao converter o resource para entidade, resouce: " + produtoResource);
 		}
 
 	}
 
-	private Long checkCodBarras(String codBarras) {
-		return Long.parseLong(codBarras);
-	}
+//	private Long checkCodBarras(String codBarras) {
+//		return Long.parseLong(codBarras);
+//	}
 
 	private int checkQuantidade(String quantidade) {
 		return Integer.parseInt(quantidade);

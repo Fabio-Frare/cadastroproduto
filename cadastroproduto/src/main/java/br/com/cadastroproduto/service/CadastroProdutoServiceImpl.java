@@ -26,6 +26,7 @@ public class CadastroProdutoServiceImpl {
 
 			Produto produto = service.conversor(produtoResource);
 			produtoRepository.saveAndFlush(produto);
+			
 
 		} catch (ProdutoResourceException e) {
 			LOG.error("Erro ao salvar o produto: " + e.getMessage(), e);

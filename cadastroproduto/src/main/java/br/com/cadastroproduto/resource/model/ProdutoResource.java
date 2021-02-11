@@ -11,7 +11,7 @@ public class ProdutoResource implements Serializable {
 	@JsonProperty("descricao")
 	private String descricao;
 
-	@JsonProperty("codigo_barras")
+	@JsonProperty("codigoBarras")
 	private String codBarras;
 
 	@JsonProperty("quantidade")
