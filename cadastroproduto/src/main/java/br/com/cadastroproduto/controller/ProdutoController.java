@@ -14,6 +14,7 @@ import org.springframework.web.bind.annotation.RestController;
 import br.com.cadastroproduto.datasource.model.Produto;
 import br.com.cadastroproduto.exception.ProdutoNotFoundException;
 import br.com.cadastroproduto.resource.model.ProdutoResource;
+import br.com.cadastroproduto.service.BuscarProdutoPorCodBarrasServiceImpl;
 import br.com.cadastroproduto.service.BuscarProdutoPorIdServiceImpl;
 import br.com.cadastroproduto.service.BuscarProdutosServiceImpl;
 import br.com.cadastroproduto.service.CadastroProdutoServiceImpl;
@@ -30,6 +31,9 @@ public class ProdutoController {
 
 	@Autowired
 	private BuscarProdutoPorIdServiceImpl serviceBuscarPorId;
+	
+	@Autowired
+	private BuscarProdutoPorCodBarrasServiceImpl serviceBuscarPorCodBarras;
 
 	@GetMapping(path = "/produtos")
 	public List<Produto> buscarProdutos() {
@@ -41,6 +45,12 @@ public class ProdutoController {
 			throws ProdutoNotFoundException {
 		return serviceBuscarPorId.buscarPorId(id);
 	}
+	
+	@GetMapping(path = "/produto/codigoBarras/{codigoBarras}")
+	public Produto buscarProdutoPorCodBarras(@PathVariable(name = "codigoBarras", required = true) Long codigoBarras)
+			throws ProdutoNotFoundException {
+		return serviceBuscarPorCodBarras.buscarPorCodBarras(codigoBarras);
+	}
 
 	@PostMapping(path = "/produto/save")
 	public void salvarProduto(@RequestBody ProdutoResource produto) {
@@ -51,5 +61,6 @@ public class ProdutoController {
 	public void deleteProduto(@PathVariable(name = "id", required = true) Long id) throws ProdutoNotFoundException {
 		serviceBuscarPorId.deletarPorId(id);
 	}
+	
 
 }

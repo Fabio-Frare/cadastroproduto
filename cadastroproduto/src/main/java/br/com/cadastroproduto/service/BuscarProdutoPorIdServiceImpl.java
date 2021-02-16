@@ -4,7 +4,6 @@ import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-
 import br.com.cadastroproduto.datasource.model.Produto;
 import br.com.cadastroproduto.exception.ProdutoNotFoundException;
 import br.com.cadastroproduto.repository.ProdutoRepository;
@@ -24,6 +23,7 @@ public class BuscarProdutoPorIdServiceImpl {
 			produto = optionalProduto.get();
 		}
 		return produto;
+
 	}
 
 	private Optional<Produto> getOptional(Long id) {
