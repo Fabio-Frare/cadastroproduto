@@ -51,6 +51,11 @@ public class ProdutoController {
 			throws ProdutoNotFoundException {
 		return serviceBuscarPorCodBarras.buscarPorCodBarras(codigoBarras);
 	}
+	
+	@DeleteMapping(path = "/produto/codigoBarras/delete/{codigoBarras}")
+	public void deleteProdutoCodBarras(@PathVariable(name = "codigoBarras", required = true) Long codigoBarras) throws ProdutoNotFoundException {
+		serviceBuscarPorCodBarras.deletarPorCodBarras(codigoBarras);
+	}
 
 	@PostMapping(path = "/produto/save")
 	public void salvarProduto(@RequestBody ProdutoResource produto) {

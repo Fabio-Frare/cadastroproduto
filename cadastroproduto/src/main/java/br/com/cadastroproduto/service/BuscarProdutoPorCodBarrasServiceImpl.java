@@ -28,11 +28,11 @@ public class BuscarProdutoPorCodBarrasServiceImpl {
 
 	private Produto getOptional(Long codBarras) {
 		List<Produto> lista = produtoRepository.findAll();
-		for (Produto produto : lista) {
-			
+		for (Produto produto : lista) {			
 			if (produto.getCodigoBarras().equals(codBarras) == true) {
-				System.out.println("produto: " + produto.getCodigoBarras());
 				return produto;
+			} else {
+//				throw new ProdutoNotFoundException("Produto nao encontrado através do codigo de barras: " + codBarras);
 			}
 		}
 		return null;
