@@ -25,8 +25,88 @@ public class Produto implements Serializable {
 	private int icms;
 	private int ipi;
 
-	public Produto() {
+	private Produto() {
+
 	}
+
+	private Produto( String descricao, Long codigoBarras, int quantidade, String unidadeMedida, float valor,
+			int icms, int ipi) {
+		super();
+		this.descricao     = descricao;
+		this.codigoBarras  = codigoBarras;
+		this.quantidade    = quantidade;
+		this.unidadeMedida = unidadeMedida;
+		this.valor         = valor;
+		this.icms          = icms;
+		this.ipi           = ipi;
+	}
+
+	// Aqui inicia a implementação do padrão Builder 
+	public static class ProdutoBuilder {
+		private String descricao;
+		private Long codigoBarras;
+		private int quantidade;
+		private String unidadeMedida;
+		private float valor;
+		private int icms;
+		private int ipi;
+
+		public ProdutoBuilder() {
+
+		}
+
+		public ProdutoBuilder( String descricao, Long codigoBarras, int quantidade, String unidadeMedida,
+				float valor, int icms, int ipi) {
+			super();
+			this.descricao     = descricao;
+			this.codigoBarras  = codigoBarras;
+			this.quantidade    = quantidade;
+			this.unidadeMedida = unidadeMedida;
+			this.valor         = valor;
+			this.icms          = icms;
+			this.ipi           = ipi;
+		}
+
+		public ProdutoBuilder descricao(String descricao) {
+			this.descricao = descricao;
+			return this;
+		}
+
+		public ProdutoBuilder codigoBarras(Long codigoBarras) {
+			this.codigoBarras = codigoBarras;
+			return this;
+		}
+
+		public ProdutoBuilder quantidade(int quantidade) {
+			this.quantidade = quantidade;
+			return this;
+		}
+
+		public ProdutoBuilder unidadeMedida(String unidadeMedida) {
+			this.unidadeMedida = unidadeMedida;
+			return this;
+		}
+
+		public ProdutoBuilder valor(float valor) {
+			this.valor = valor;
+			return this;
+		}
+
+		public ProdutoBuilder icms(int icms) {
+			this.icms = icms;
+			return this;
+		}
+
+		public ProdutoBuilder ipi(int ipi) {
+			this.ipi = ipi;
+			return this;
+		}
+
+		public Produto criarProduto() {
+			return new Produto( descricao, codigoBarras, quantidade, unidadeMedida, valor, icms, ipi);
+		}
+
+	} // aqui finaliza a implementação do padrão Builder
 
 	public Long getId() {
 		return id;
@@ -92,4 +172,12 @@ public class Produto implements Serializable {
 		this.ipi = ipi;
 	}
 
+	@Override
+	public String toString() {
+		return "Produto [id=" + id + ", descricao=" + descricao + ", codigoBarras=" + codigoBarras + ", quantidade="
+				+ quantidade + ", unidadeMedida=" + unidadeMedida + ", valor=" + valor + ", icms=" + icms + ", ipi="
+				+ ipi + "]";
+	}
+
+	
 }

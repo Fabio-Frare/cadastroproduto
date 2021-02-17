@@ -65,7 +65,6 @@ public class ProdutoController {
 	@DeleteMapping(path = "/produto/delete/{id}")
 	public void deleteProduto(@PathVariable(name = "id", required = true) Long id) throws ProdutoNotFoundException {
 		serviceBuscarPorId.deletarPorId(id);
-	}
-	
+	}	
 
 }
