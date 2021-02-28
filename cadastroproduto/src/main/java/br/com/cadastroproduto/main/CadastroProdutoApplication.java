@@ -1,13 +1,13 @@
-package br.com.cadastroproduto;
+package br.com.cadastroproduto.main;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 @SpringBootApplication
-public class CadastroprodutoApplication {
+public class CadastroProdutoApplication {
 
 	public static void main(String[] args) {
-		SpringApplication.run(CadastroprodutoApplication.class, args);
+		SpringApplication.run(CadastroProdutoApplication.class, args);
 	}
 
 }

@@ -29,7 +29,7 @@ public class Produto implements Serializable {
 
 	}
 
-	private Produto( String descricao, Long codigoBarras, int quantidade, String unidadeMedida, float valor,
+	private Produto (String descricao, Long codigoBarras, int quantidade, String unidadeMedida, float valor,
 			int icms, int ipi) {
 		super();
 		this.descricao     = descricao;
@@ -41,7 +41,7 @@ public class Produto implements Serializable {
 		this.ipi           = ipi;
 	}
 
-	// Aqui inicia a implementação do padrão Builder 
+	// Início da implementação do padrão Builder 
 	public static class ProdutoBuilder {
 		private String descricao;
 		private Long codigoBarras;
@@ -106,7 +106,7 @@ public class Produto implements Serializable {
 			return new Produto( descricao, codigoBarras, quantidade, unidadeMedida, valor, icms, ipi);
 		}
 
-	} // aqui finaliza a implementação do padrão Builder
+	} // Final da implementação do padrão Builder
 
 	public Long getId() {
 		return id;
