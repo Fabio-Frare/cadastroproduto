@@ -1,4 +1,4 @@
-package br.com.cadastroproduto.main;
+package br.com.cadastroproduto;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;

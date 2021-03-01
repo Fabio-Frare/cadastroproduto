@@ -23,17 +23,14 @@ public class BuscarProdutoPorCodBarrasServiceImpl {
 			throw new ProdutoNotFoundException("Produto nao encontrado através do codigo de barras: " + codBarras);
 		}
 		return produto;
-
 	}
 
 	private Produto getOptional(Long codBarras) throws ProdutoNotFoundException {
 		List<Produto> lista = produtoRepository.findAll();
-		for (Produto produto : lista) {			
+		for (Produto produto : lista) {
 			if (produto.getCodigoBarras().equals(codBarras) == true) {
 				return produto;
-			} else {
-				throw new ProdutoNotFoundException("Produto nao encontrado através do codigo de barras: " + codBarras);
-			}
+			}			
 		}
 		return null;
 	}

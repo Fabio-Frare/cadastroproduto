@@ -24,6 +24,7 @@ public class Produto implements Serializable {
 	private float valor;
 	private int icms;
 	private int ipi;
+	
 
 	private Produto() {
 
